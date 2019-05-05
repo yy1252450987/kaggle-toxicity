@@ -1,5 +1,0 @@
-
-
-(1) FE: Some features might have relations with Toxicity, like capitals letters in the text, punctuations in the texts.
-Add the new features into the training set.
-(2)
