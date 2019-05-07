@@ -4,6 +4,7 @@ Tries:
 * checkpoint ensemble & exponential moving average prediction ensemble
 * ?!
 * swore words replace with fuck
+* trunction words and mispelling words
 useful kernals
 * https://www.kaggle.com/theoviel/improve-your-score-with-text-preprocessing-v2
 * https://www.kaggle.com/artgor/toxicity-eda-logreg-and-nn-interpretation
