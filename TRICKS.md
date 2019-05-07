@@ -5,6 +5,8 @@ Tries:
 * ?!
 * swore words replace with fuck
 * trunction words and mispelling words
+* identity weights
+* special words for hexie
 useful kernals
 * https://www.kaggle.com/theoviel/improve-your-score-with-text-preprocessing-v2
 * https://www.kaggle.com/artgor/toxicity-eda-logreg-and-nn-interpretation
