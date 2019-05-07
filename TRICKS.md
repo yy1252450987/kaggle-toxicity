@@ -2,7 +2,8 @@ Tries:
 * BERT model
 * dropout 0.1-> 0.2
 * checkpoint ensemble & exponential moving average prediction ensemble
-
+* ?!
+* swore words replace with fuck
 useful kernals
 * https://www.kaggle.com/theoviel/improve-your-score-with-text-preprocessing-v2
 * https://www.kaggle.com/artgor/toxicity-eda-logreg-and-nn-interpretation
