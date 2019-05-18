@@ -1,0 +1,35 @@
+这个比赛是我第一次参加NLP类型的比赛，从一开始的一无所知，到最后熟悉各种文本处理的方法，以及算法模型的实现与调参。
+
+1. FEATURE ENGINEER
+对于文本类数据，与其他数据不同，我们不需要自己构造magic feature，理论上来说，这里清理文本数据就是特征工程的主要部分。
+常见的清理文本数据的方法
+(1) 特殊字符: !@#%^^&等等
+(2) 连词: we'll, i'd 等等
+(3) 拼写错误: FCUKER，scukers 等等
+(4) 屏蔽词: f*&k, s*@t等等
+(5) 逃避屏蔽的词: F U U C C K K等等
+
+注意: 在这个比赛中我们尝试了不同的组合方式，发现其实过多的清理词汇会使得LB 分数降低，其中特别讨论了为什么过多的清理反而会使得分数降低。
+
+2. EMBEDDING
+这里由于是评论型的文本数据，因此我们选用了现成的词向量数据库。这里我们使用了两个glove(300d)和fasttext(300d)两个数据库。
+我们比较单个glove, 单个fasttext，以及合并glove&fasttext，通过验证我们发现concatation的结果最好。
+**TRICK: 为了节省传输时间，利用pkl的传输方式对数据库进行load，可在十几秒load到缓存中
+
+
+3. MODEL
+接下来是模型的选择部分，我们选尝试了很多模型包括
+(1) CNN
+(2) BLSTM
+(3) BLSTM+Attention
+(4) BERT
+
+但是我们考虑到，这是个keranl-dependent比赛，需要在2h GPU时间内完成数据处理，因此同时跑这么多模型是不切实际的。
+**TRICK: checkpoint ensemble, 2h一般一个模型可以跑4个epoch, 因此为了最大化我们的权重利用效率，我们基于每个epoch的权重进行预测，再将其进行ensemble.
+可以获得更好结果
+
+
+4. PREDICTION
+我们接着对每个模型进行线下的training,然后上传model，再进行inference. 这里我们利用ensemble的策略进行预测。
+
+
